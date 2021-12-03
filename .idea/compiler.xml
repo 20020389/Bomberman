@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="App5" options="--add-exports javafx.graphics/com.sun.glass.ui=org.example" />
+      <module name="App5" options="" />
     </option>
   </component>
 </project>

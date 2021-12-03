@@ -147,13 +147,6 @@ public class Bomb extends Mob{
         wallDestroy = new HashMap<>();
         this.boomLeght = boomLeght;
         AudioClip audioClip = null;
-        try {
-            audioClip = new AudioClip(Bomb.class.getResource("/assets/audio/putbomb.mp3").toURI().toString());
-            audioClip.setVolume(Setting.getEFFECTVOLUME());
-            audioClip.play();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
