@@ -7,9 +7,11 @@ import com.snow.bomberman.mob.Mob;
 import com.snow.bomberman.mob.Mobs;
 import com.snow.bomberman.mob.Way;
 import com.snow.bomberman.player.Bomberman;
+import com.snow.bomberman.setting.Setting;
 import com.snow.bomberman.something.Point;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 import java.net.URISyntaxException;
 import java.util.LinkedList;
@@ -130,16 +132,16 @@ public class Pass extends Mob {
         int j = (int) x / 32;
         int i = (int) y / 32;
         timeDeadAnimation++;
-        if (deadStatus == 0 && timeDeadAnimation == 30) {
+        if (deadStatus == 0 && timeDeadAnimation == 40) {
             deadStatus ++;
         } else if (deadStatus > 0 && timeDeadAnimation % 20 == 0) {
             deadStatus++;
         }
         mapHash[i][j] = 2;
-        if (timeDeadAnimation >= 70) {
+        if (timeDeadAnimation >= 80) {
             Bomberman.LISTBOMB.add(
-                    new Bomb(setBomb(), mapHash, (Bomberman) Mobs.MOBS.get(0), 3,
-                            150)
+                    new Bomb(setBomb(), mapHash,
+                            (Bomberman) Mobs.MOBS.get(0), 3, 160)
             );
             Mobs.MOBS.remove(this);
         }

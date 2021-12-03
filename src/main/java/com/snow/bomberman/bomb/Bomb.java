@@ -146,7 +146,6 @@ public class Bomb extends Mob{
         checkBomb = false;
         wallDestroy = new HashMap<>();
         this.boomLeght = boomLeght;
-        AudioClip audioClip = null;
     }
 
     @Override
@@ -155,7 +154,6 @@ public class Bomb extends Mob{
         int j = (int)x / 32;
         int i = (int)y / 32;
         if (timing) {
-            render.drawImage(BOMBIMG.get(statusAmination), x, y);
             if (PAUSE) {
                 return;
             }
@@ -163,10 +161,6 @@ public class Bomb extends Mob{
                 mapHash[i][j] = 5;
             } else {
                 mapHash[i][j] = 4;
-            }
-            timeAnimation++;
-            if (timeAnimation % 20 == 0) {
-                statusAmination++;
             }
             if (timeAnimation == TIMELIMIT) {
                 AudioClip audioClip = null;
@@ -181,6 +175,12 @@ public class Bomb extends Mob{
                 timeAnimation = 0;
                 statusAmination = 2;
                 getBombLocation(mapHash[0].length * 32);
+                return;
+            }
+            render.drawImage(BOMBIMG.get(statusAmination), x, y);
+            timeAnimation++;
+            if (timeAnimation % 20 == 0) {
+                statusAmination++;
             }
             if (statusAmination >= 3) {
                 statusAmination = 0;
@@ -198,6 +198,13 @@ public class Bomb extends Mob{
                     }
                     if (!k.isFlamepass()) {
                         k.setSurvival(false);
+                    }
+                }
+            }
+            for (Bomb k : Bomberman.LISTBOMB) {
+                if (this != k && k.timing) {
+                    if (inBombWay(check, k)) {
+                        k.setBoom(true);
                     }
                 }
             }
