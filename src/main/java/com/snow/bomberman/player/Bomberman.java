@@ -698,10 +698,8 @@ public class Bomberman extends Mob {
     @Override
     public void setSurvival(boolean survival) {
         if (!this.deading && PlayWindow.getMODE() != Mode.training) {
-            if (PlayWindow.getMODE() == Mode.aventure) {
-                if (PlayWindow.FINDLIFEONDEAD) {
-                    PlayWindow.SCORE += 2000;
-                }
+            if (PlayWindow.FINDLIFEONDEAD) {
+                PlayWindow.SCORE += 2000;
             }
             PlayWindow.GAMEAUDIO.stop();
             deadAudio();
@@ -710,7 +708,7 @@ public class Bomberman extends Mob {
     }
 
     public static boolean canWallPass() {
-        return WALLPASS != 2;
+        return WALLPASS == 3;
     }
 
     public static boolean isHasSpeedUp() {

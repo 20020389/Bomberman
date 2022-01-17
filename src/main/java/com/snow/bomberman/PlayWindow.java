@@ -78,6 +78,7 @@ public class PlayWindow {
             BOMBCONTROLLED = 3;
             FLAMEPASS = 0;
             FLASH = 0;
+            FINDLIFEONDEAD = false;
             Bomb.BOOMLEGHT = 1;
             Bomberman.WALLPASS = 2;
             Bomberman.SPEED = 2;

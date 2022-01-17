@@ -60,7 +60,7 @@ public class Item extends Mob {
                 return findlifeondead;
             }
             if (value == 8) {
-                if (Bomberman.canWallPass()) {
+                if (Bomberman.canWallPass() && PlayWindow.getMODE() == Mode.aventure) {
                     return limitbomb;
                 }
                 return wallpass;
